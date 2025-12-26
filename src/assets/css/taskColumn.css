@@ -33,3 +33,13 @@
 .task-card h6{
     margin: 0;
 }
+
+.drop-area{
+    border: 2px dashed #aaa;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    color: #777;
+    font-style: italic;
+}
