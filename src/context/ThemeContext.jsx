@@ -31,9 +31,6 @@ export const ThemeProvider = ({ children }) => {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {/* <div className={theme === 'dark' ? 'dark' : 'light'}>
-        {children}
-      </div> */}
         {children}
     </ThemeContext.Provider>
   );
