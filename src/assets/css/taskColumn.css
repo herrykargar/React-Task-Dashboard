@@ -1,0 +1,35 @@
+.task-collumn{
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 0;
+    background-color: var(--card-background);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-collumn h4{
+    background-color: aquamarine;
+    text-align: center;
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 16px;
+    color: var(--primary-color);
+    padding: 16px;
+}
+
+.task-collumn-body{
+    padding: 16px;
+    min-height: 100px;
+}
+
+.task-card{
+    background-color: var(--accent-color);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    cursor: grab;
+}
+
+.task-card h6{
+    margin: 0;
+}
