@@ -1,6 +1,13 @@
 # React + Vite
 ## How to Use This Project
+1. **Open the dashboard overview:**  
+    ![Dashboard Overview](https://github.com/user-attachments/assets/f6e9d118-cc1f-4bdf-a6e0-84477019515c)
 
+2. **Create a new task:**  
+    ![Create Task Modal](https://github.com/user-attachments/assets/placeholder-create-task.png)
+
+3. **Track progress and status updates:**  
+    ![Task Progress](https://github.com/user-attachments/assets/placeholder-task-progress.png)
 1. **Install dependencies:**  
     ```bash
     npm install
