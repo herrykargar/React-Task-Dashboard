@@ -34,6 +34,7 @@ export default function TaskManager() {
 
     const [tasks, setTasks] = React.useState(initialTasks);
     const [open, setOpen] = React.useState(false);
+    const [activeTask, setActiveTask] = React.useState(null);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const addToDo = () => {
@@ -62,6 +63,19 @@ export default function TaskManager() {
         p: 4,
     };
 
+    const handleTaskDrop = (status, position) => {
+        console.log(`Dropped on ${status} at position ${position}`);
+        if (activeTask === null || activeTask === undefined) return;
+        let updated = tasks.map(task => {
+            if (task.id === activeTask) {
+                return { ...task, status: status };
+            }
+            return task;
+        });
+        setTasks(updated);
+        setActiveTask(null);
+    }
+
     return (
         <>
             <div className='section'>
@@ -69,6 +83,7 @@ export default function TaskManager() {
                     <div>
                         <h2>Task Manager</h2>
                         <p>This is where you can manage your tasks.</p>
+                        <h1>active task {activeTask}</h1>
                     </div>
                     <div>
                         <Button onClick={handleOpen} variant='contained' color='warning' startIcon={<AddIcon />}>
@@ -79,7 +94,7 @@ export default function TaskManager() {
 
                 <div>
                     {
-                        <TaskContext.Provider value={{ tasks, setTasks }}>
+                        <TaskContext.Provider value={{ tasks, setTasks, activeTask, setActiveTask, handleTaskDrop }}>
                             <div className="row justify-content-center gap-3">
                                 {
                                     ['To Do', 'In Progress', 'Completed'].map((what) => (

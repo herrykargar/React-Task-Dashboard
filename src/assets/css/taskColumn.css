@@ -16,7 +16,7 @@
 }
 
 .task-collumn-body{
-    padding: 16px;
+    padding: 0 16px 0;
     min-height: 100px;
 }
 
@@ -28,6 +28,12 @@
     margin-bottom: 12px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     cursor: grab;
+    transition: ease-in-out 0.2s;
+}
+
+.task-card:active{
+    opacity: 0.7;
+    cursor: grabbing;
 }
 
 .task-card h6{
@@ -42,4 +48,11 @@
     text-align: center;
     color: #777;
     font-style: italic;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
 }
+
+.hide-drop{
+    opacity: 0;
+    /* margin-bottom: 0; */
+}   

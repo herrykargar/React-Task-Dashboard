@@ -1,7 +1,6 @@
 import '../assets/css/taskColumn.css';
 import Task from './Task';
-import DropArea from './DropArea';
-// import 
+// import DropArea from './DropArea';
 
 export default function TaskCollumn({ ...props }) {
     return (
@@ -11,7 +10,6 @@ export default function TaskCollumn({ ...props }) {
                     <h4>{props.title}</h4>
                 </div>
                 <div className='task-collumn-body'>
-                    <DropArea />
                     <Task status={props.title} />
                     {/* <DropArea /> */}
                 </div>

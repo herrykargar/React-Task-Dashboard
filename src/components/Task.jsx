@@ -4,11 +4,11 @@ import IconButton from '@mui/material/IconButton';
 import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
 import StartIcon from '@mui/icons-material/Start';
 import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
-import Draggable from 'react-draggable';
 import DropArea from './DropArea';
 
 export default function Task({ status }) {
     const { tasks, setTasks } = useContext(TaskContext);
+    const { activeTask, setActiveTask } = useContext(TaskContext);
 
     const moveToCompleted = (id) => {
         let updated = tasks.map(task => {
@@ -30,28 +30,14 @@ export default function Task({ status }) {
         setTasks(updated);
     }
 
-    // const dragTask = (e, id) => {
-    //     e.preventDefault();
-    //     let updated = tasks.map(task => {
-    //         if (task.id === id) {
-    //             return { ...task, status: task.status === 'To Do' ? 'In Progress' : task.status === 'In Progress' ? 'Completed' : 'To Do' };
-    //         }
-    //         console.log(task);
-    //         return task;
-    //     });
-    //     setTasks(updated);
-    // }
-
-    const nodeRef = React.useRef(null);
     return (
         <div>
+            <DropArea status={status} position={0}/>
             {
+
                 tasks ? tasks.filter(task => task.status === status).map(filteredTask => (
-                    // <Draggable nodeRef={nodeRef} key={filteredTask.id}>
-                    // <div onDragStart={() => { console.log("hello drage"); }} className="task-card" ref={nodeRef}>
                     <div key={filteredTask.id}>
-                        <div onDragStart={() => { console.log("hello drage"); }} className="task-card" draggable>
-                            {/* <div onDragLeaveCapture={(event)=>{ dragTask(event, filteredTask.id) }} className="task-card" ref={nodeRef}> */}
+                        <div onDragStart={() => { setActiveTask(filteredTask.id) }} onDragEnd={() => setActiveTask(null)} className="task-card" draggable>
                             <h6>
                                 {filteredTask.title}
                                 {
@@ -74,11 +60,10 @@ export default function Task({ status }) {
                                 }
                             </h6>
                         </div>
-                        <DropArea />
+                        <DropArea status={status} position={filteredTask.id + 1}/>
                     </div>
-                    // </Draggable> 
                 )) : 'No tasks available'
             }
-        </div>
+        </div >
     )
 }
