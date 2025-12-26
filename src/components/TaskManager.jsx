@@ -1,5 +1,4 @@
 import React from 'react'
-// import Button from '../ui/Button';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import TaskCollumn from './TaskCollumn';
@@ -31,7 +30,6 @@ export default function TaskManager() {
             status: 'To Do',
         },
     ];
-
     const [tasks, setTasks] = React.useState(initialTasks);
     const [open, setOpen] = React.useState(false);
     const [activeTask, setActiveTask] = React.useState(null);
@@ -63,8 +61,7 @@ export default function TaskManager() {
         p: 4,
     };
 
-    const handleTaskDrop = (status, position) => {
-        console.log(`Dropped on ${status} at position ${position}`);
+    const handleTaskDrop = (status) => {
         if (activeTask === null || activeTask === undefined) return;
         let updated = tasks.map(task => {
             if (task.id === activeTask) {
@@ -83,7 +80,6 @@ export default function TaskManager() {
                     <div>
                         <h2>Task Manager</h2>
                         <p>This is where you can manage your tasks.</p>
-                        <h1>active task {activeTask}</h1>
                     </div>
                     <div>
                         <Button onClick={handleOpen} variant='contained' color='warning' startIcon={<AddIcon />}>
